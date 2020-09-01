@@ -1,3 +1,3 @@
-import { getCriminals, returnedCriminals } from "./criminals/CriminalProvider.js"
+import { criminalsList } from "./criminals/CriminalList.js"
 
-getCriminals()
+criminalsList()

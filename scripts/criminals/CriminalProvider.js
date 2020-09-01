@@ -1,10 +1,10 @@
 
 console.log("test 1, 2, test test")
 
-let criminals = []
+let criminals = ""
 
 export const returnedCriminals = () => {
-    return criminals.slice()
+    return criminals
 }
 
 
@@ -13,7 +13,7 @@ export const getCriminals = () => {
         .then(response => response.json())
         .then(
             parsedCriminals => {
-                console.table(parsedCriminals)
+                // console.table(parsedCriminals)
                 criminals = parsedCriminals
             }
         )
