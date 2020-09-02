@@ -1,17 +1,18 @@
 import { useConvictions, getConvictions } from "./ConvictionProvider.js"
 
-const runIt = getConvictions()
+const eventHub = document.querySelector(".bigBoyEvent")
 const contentTarget = document.querySelector(".hello")
 
-export const ConvictionSelect = () => {
-    getConvictions()
-    .then(() => {
-        const convictions = useConvictions()
-        render(convictions)
+eventHub.addEventListener("change", event => {
+    if(event.target.id === "crimeSelect") {
+        const customEvent = new CustomEvent("crimeChosen", {
+            detail: {
+                crimeThatWasChosen: event.target.value
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
     }
-    )
-
-}
+})
 
 const render = convictionsCollection => {
     const listItems = useConvictions()
@@ -22,10 +23,19 @@ const render = convictionsCollection => {
         ${
             listItems.map(convictionObject => {
                 const convictionName = convictionObject.name
-                return `<option>${convictionName}</option>`
+                return `<option value=${convictionName}>${convictionName}</option>`
             })
         }
     </select>
 `
 }
 
+export const ConvictionSelect = () => {
+    getConvictions()
+    .then(() => {
+        const convictions = useConvictions()
+        render(convictions)
+    }
+    )
+
+}

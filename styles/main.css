@@ -1,7 +1,7 @@
 
 .criminal-cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: wrap;
     justify-content: space-evenly;
     align-content: space-between;
 }
@@ -9,6 +9,6 @@
 
 .individual-criminal-card {
     width: 32%;
-    height: 20%%;
+    height: 20%;
     border: 2px solid black;
 }   
