@@ -1,5 +1,4 @@
     export const criminalHTML = (criminalObject) => {
-        console.log("starting html run", criminalObject.name)
         return `
         <div class = "individual-criminal-card">
             <h2>${criminalObject.name}</h2>

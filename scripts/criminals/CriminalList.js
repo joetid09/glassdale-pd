@@ -9,7 +9,6 @@ export const criminalsList =() => {
     getCriminals()
     .then(() => {
         const theCriminal = returnedCriminals()
-        console.log("theCriminal", theCriminal)
         addCriminalsToDom(theCriminal);
     }
 
@@ -22,7 +21,6 @@ const addCriminalsToDom = (aCriminalArray) => {
     let HTMLArray = aCriminalArray.map(singleCriminal => {
         return criminalHTML(singleCriminal)
     })
-    console.log("HTMLArray", HTMLArray)
 
     criminalCards.innerHTML = HTMLArray.join("");
 }
