@@ -1,19 +1,36 @@
 import { getCriminals, returnedCriminals } from "./CriminalProvider.js"
-import {criminalHTML} from "./Criminal.js"
-
-const criminalCards = document.querySelector(".criminal-cards")
+import { criminalHTML } from "./Criminal.js"
 
 
 
-export const criminalsList =() => {
-    getCriminals()
-    .then(() => {
-        const theCriminal = returnedCriminals()
-        console.log("theCriminal", theCriminal)
-        addCriminalsToDom(theCriminal);
+const eventHub = document.querySelector(".bigBoyEvent")
+const contentTarget = document.querySelector(".criminal-cards")
+
+eventHub.addEventListener("crimeChosen", event => {
+    if (event.detail.crimeThatWasChosen !== "0") {
+        const matchingCriminals = returnedCriminals().filter(chargedFor => {
+            return chargedFor.conviction === event.detail.crimeThatWasChosen
+        })
+        addCriminalsToDom(matchingCriminals)
     }
+})
 
-    )
+eventHub.addEventListener("officerSelected", event => {
+    debugger;
+    if (event.detail.selectedOfficer !== "0") {
+        const matchingOfficers = returnedCriminals().filter(arrestedBy => {
+            return arrestedBy.arrestingOfficer === event.detail.selectedOfficer
+        })
+        addCriminalsToDom(matchingOfficers)
+    }
+})
+
+export const CriminalList = () => {
+    getCriminals()
+        .then(() => {
+            const appStateCriminals = returnedCriminals()
+            addCriminalsToDom(appStateCriminals)
+        })
 }
 
 const addCriminalsToDom = (aCriminalArray) => {
@@ -22,7 +39,7 @@ const addCriminalsToDom = (aCriminalArray) => {
     let HTMLArray = aCriminalArray.map(singleCriminal => {
         return criminalHTML(singleCriminal)
     })
-    console.log("HTMLArray", HTMLArray)
 
     criminalCards.innerHTML = HTMLArray.join("");
 }
+

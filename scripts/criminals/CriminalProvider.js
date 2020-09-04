@@ -1,10 +1,10 @@
 
 console.log("test 1, 2, test test")
 
-let criminals = ""
+let criminals = []
 
 export const returnedCriminals = () => {
-    return criminals
+    return criminals.slice()
 }
 
 
