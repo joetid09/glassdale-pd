@@ -7,7 +7,6 @@ const eventHub = document.querySelector(".bigBoyEvent")
 const contentTarget = document.querySelector(".criminal-cards")
 
 eventHub.addEventListener("crimeChosen", event => {
-    debugger;
     if (event.detail.crimeThatWasChosen !== "0") {
         const matchingCriminals = returnedCriminals().filter(chargedFor => {
             return chargedFor.conviction === event.detail.crimeThatWasChosen
@@ -16,7 +15,15 @@ eventHub.addEventListener("crimeChosen", event => {
     }
 })
 
-
+eventHub.addEventListener("officerSelected", event => {
+    debugger;
+    if (event.detail.selectedOfficer !== "0") {
+        const matchingOfficers = returnedCriminals().filter(arrestedBy => {
+            return arrestedBy.arrestingOfficer === event.detail.selectedOfficer
+        })
+        addCriminalsToDom(matchingOfficers)
+    }
+})
 
 export const CriminalList = () => {
     getCriminals()
@@ -25,8 +32,6 @@ export const CriminalList = () => {
             addCriminalsToDom(appStateCriminals)
         })
 }
-
-
 
 const addCriminalsToDom = (aCriminalArray) => {
     const criminalCards = document.querySelector(".criminal-cards")
@@ -37,3 +42,4 @@ const addCriminalsToDom = (aCriminalArray) => {
 
     criminalCards.innerHTML = HTMLArray.join("");
 }
+
