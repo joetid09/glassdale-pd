@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "noteText": "",
+      "suspect": "Rogelio Hills",
+      "date": 1599578017101,
+      "id": 2
+    },
+    {
+      "noteText": "",
+      "suspect": "Rogelio Hills",
+      "date": 1599578017407,
+      "id": 3
+    },
+    {
+      "noteText": "",
+      "suspect": "Rogelio Hills",
+      "date": 1599578322739,
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
