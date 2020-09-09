@@ -12,8 +12,8 @@ export const getConvictions = () => {
         )
 }
 
-    /*
-        Load database state into application state with a fetch().
-        Make sure the last `then()` sets the local `convictions`
-        variable to what is in the response from the API.
-    */
+/*
+    Load database state into application state with a fetch().
+    Make sure the last `then()` sets the local `convictions`
+    variable to what is in the response from the API.
+*/
