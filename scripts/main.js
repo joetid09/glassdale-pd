@@ -6,12 +6,12 @@ import { NoteForm } from "../notes/noteForm.js"
 import { NoteList } from '../notes/noteList.js';
 import { AlibiDialog } from "./criminals/alibiDialog.js"
 import { criminalHTML } from "./criminals/Criminal.js"
-
+import { witnessList } from "./witness/WitnessList.js"
 // CriminalList()
+
 
 ConvictionSelect()
 CriminalList()
 OfficerSelect()
-criminalHTML()
 NoteForm()
 NoteList()
