@@ -20,8 +20,7 @@ const render = convictionsCollection => {
         `
     <select class="dropdown" id="crimeSelect">
         <option value="0">Please select a crime...</option>
-        ${
-        listItems.map(convictionObject => {
+        ${listItems.map(convictionObject => {
             const convictionName = convictionObject.name
             return `<option value =${convictionName}>${convictionName}</option>`
         })
