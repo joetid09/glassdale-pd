@@ -17,13 +17,12 @@ eventHub.addEventListener("associatesClicked", event => {
     if (alibiTarget.contains(hTarget)) {
         alibiTarget.innerHTML = ""
     } else {
-        alibiTarget.innerHTML = `${
-            targetCriminal.known_associates.map(associate => {
-                return `
+        alibiTarget.innerHTML = `${targetCriminal.known_associates.map(associate => {
+            return `
             <h4>${associate.name}</h4>
             <div>${associate.alibi}</div>
             `
-            }).join("")
+        }).join("")
             }`
     }
 })
