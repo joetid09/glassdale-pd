@@ -15,7 +15,7 @@ const dispatchStateChangeEvent = () => {
 }
 
 export const getNotes = () => {
-    return fetch('http://localhost:8088/posts')
+    return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
             notes = parsedNotes
@@ -28,7 +28,7 @@ export const useNotes = () => {
 }
 
 export const saveNote = noteObj => {
-    return fetch("http://localhost:8088/posts", {
+    return fetch("http://localhost:8088/notes", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -39,4 +39,11 @@ export const saveNote = noteObj => {
             return getNotes()
         })
         .then(dispatchStateChangeEvent)
+}
+
+export const deleteNote = noteId => {
+    return fetch(`http://localhost:8088/notes/${noteId}`, {
+        method: "DELETE"
+    })
+        .then(getNotes)
 }

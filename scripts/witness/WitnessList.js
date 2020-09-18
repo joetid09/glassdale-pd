@@ -2,7 +2,6 @@ import { getWitness, useWitness } from "./WitnessDataProvider.js"
 import { Witness } from "./Witness.js"
 
 export const witnessList = () => {
-    debugger;
     getWitness()
         .then(() => {
             const witnessArray = useWitness();
