@@ -7,6 +7,7 @@ import { NoteList } from '../notes/noteList.js';
 import { AlibiDialog } from "./criminals/alibiDialog.js"
 import { criminalHTML } from "./criminals/Criminal.js"
 import { witnessList } from "./witness/WitnessList.js"
+import { getCriminals } from "./criminals/CriminalProvider.js"
 // CriminalList()
 
 
@@ -14,4 +15,4 @@ ConvictionSelect()
 CriminalList()
 OfficerSelect()
 NoteForm()
-NoteList()
+getCriminals()
